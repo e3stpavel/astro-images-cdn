@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint"
@@ -18,7 +18,9 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^9.0.0",
+    "@astrojs/check": "^0.9.9",
     "eslint": "^10.5.0",
-    "eslint-plugin-astro": "^1.7.0"
+    "eslint-plugin-astro": "^1.7.0",
+    "typescript": "^6.0.3"
   }
 }

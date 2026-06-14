@@ -5,3 +5,6 @@ trustPolicy: no-downgrade
 allowBuilds:
   esbuild: true
   sharp: true
+
+trustPolicyExclude:
+  - chokidar@4.0.3
