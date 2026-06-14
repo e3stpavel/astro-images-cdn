@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets'
+import road from '~/assets/road.jpg'
 
 ---
 
@@ -13,5 +15,28 @@
   </head>
   <body>
     <h1>Astro</h1>
+    <div id="container">
+      <Image src={road} alt="" loading="eager" />
+    </div>
   </body>
 </html>
+
+<style>
+  html, body {
+    min-height: 100%;
+  }
+
+  body {
+    height: 100%;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  div#container {
+    max-width: 720px;
+    margin-inline: auto;
+  }
+</style>
