@@ -66,13 +66,24 @@ jobs:
           path: ./dist/_astro/
           include-hidden-files: true
 
+      # replaces https://github.com/actions/upload-pages-artifact/blob/main/action.yml
+      - name: Archive artifact
+        run: |
+          tar \
+            --dereference --hard-dereference \
+            --directory "./dist/" \
+            -cvf "$RUNNER_TEMP/artifact.tar" \
+            --exclude .git \
+            --exclude .github \
+            --exclude _astro \
+            .
+      
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v5
+        uses: actions/upload-artifact@v7
         with:
-          path: |
-            ./dist/
-            !./dist/_astro
-          include-hidden-files: true
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          if-no-files-found: error
 
   upload:
     name: Upload assets
